@@ -1,0 +1,17 @@
+dev-knife-gateway.2222.docs.chef.io:
+  tags:
+    dev-knife-gateway
+    account-dev
+    region-us-east-1
+
+knife-gateway.3333.docs.chef.io:
+  tags:
+    knife-gateway
+    account-prod
+    region-us-east-2
+
+knife-gateway.4444.docs.chef.io:
+  tags:
+    knife-gateway
+    account-prod
+    region-us-east-2

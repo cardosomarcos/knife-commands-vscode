@@ -10,24 +10,60 @@
     "Other"
   ],
   "activationEvents": [
-    "onView:fileExplorer"
+    "onView:fileExplorer",
+    "onView:knifeCommands"
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "viewsContainers": {
-      "activitybar": [
+    "menus": {
+      "view/title": [
         {
-          "id": "package-explorer",
-          "title": "Knife",
-          "icon": "media/icon-explorer.svg"
+          "command": "vscode-docker.networks.configureExplorer",
+          "when": "view == knifeCommands",
+          "group": "navigation@8"
+        },
+        {
+          "command": "vscode-docker.networks.prune",
+          "when": "view == knifeCommands",
+          "group": "navigation@1"
+        },
+        {
+          "command": "vscode-docker.networks.refresh",
+          "when": "view == knifeCommands",
+          "group": "navigation@9"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "vscode-docker.networks.inspect",
+          "when": "view == knifeCommands && viewItem == network",
+          "group": "networks_1_general@1"
+        },
+        {
+          "command": "vscode-docker.networks.remove",
+          "when": "view == knifeCommands && viewItem == network",
+          "group": "networks_2_destructive@1"
         }
       ]
     },
     "views": {
       "package-explorer": [
         {
-          "id": "nodeDependencies",
-          "name": ""
+          "id": "knifeServer",
+          "name": "Server"
+        },
+        {
+          "id": "knifeCommands",
+          "name": "Commands"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "package-explorer",
+          "title": "Knife",
+          "icon": "media/icon-explorer.svg"
         }
       ]
     }
